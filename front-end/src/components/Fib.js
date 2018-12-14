@@ -27,10 +27,10 @@ export default class Fib extends Component {
 
   async fetchIndexes() {
     const seenIndexes = await axios.get("/api/values/all");
-    this.setState({ seenIndexes: seenIndexes.data });
+    this.setState({ seenIndex: seenIndexes.data });
   }
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => number).join(",");
+    return this.state.seenIndex.map(({ number }) => number).join(",");
   }
   renderValues() {
     const entries = [];
