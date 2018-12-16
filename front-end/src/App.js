@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import OtherPage from "./components/OtherPage";
 import Fib from "./components/Fib";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -13,8 +14,14 @@ class App extends Component {
             <h1 className="App-title">
               Welcome to the Fibonaci Sequence Calculator
             </h1>
-            <Link to="/">Home</Link>
-            <Link to="/otherpage">Other Page</Link>
+            <div className="nav-items">
+              <div>
+                <Link to="/">Home</Link>
+              </div>
+              <div>
+                <Link to="/otherpage">Other Page</Link>
+              </div>
+            </div>
           </header>
           Its working
           <div>
