@@ -11,6 +11,7 @@
   "author": "Wechuli",
   "license": "MIT",
   "dependencies": {
+    "nodemon": "^1.18.9",
     "redis": "^2.8.0"
   }
 }
