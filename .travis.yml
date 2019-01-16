@@ -1,0 +1,21 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t wechuli/react-test -f .client/Dockerfile.dev ./client
+script :
+  - docker run wechuli/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t wechuli/fib-client ./client
+  - docker build -t wechuli/fib-nginx ./nginx
+  - docker build -t wechuli/fib-server ./server
+  - docker build -t wechuli/fib-worker ./worker
+  #push images to docker hub , we first need to log in to the docker cli
+  #log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #push built images to docker hub
+  - docker push wechuli/fib-client
+  - docker push wechuli/fib-nginx
+  - docker push wechuli/fib-server
+  - docker push wechuli/fib-worker
