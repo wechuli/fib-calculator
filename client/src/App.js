@@ -12,7 +12,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">
-              Welcome to the Fibonaci Sequence Calculator
+              The Fibonaci Sequence Calculator
             </h1>
             <div className="nav-items">
               <div>
