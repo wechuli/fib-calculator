@@ -19,3 +19,16 @@ after_success:
   - docker push wechuli/fib-nginx
   - docker push wechuli/fib-server
   - docker push wechuli/fib-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: fib-calculator
+  env: FibCalculator-env
+  bucket_name: elasticbeanstalk-us-west-2-921935280889
+  bucket_path: fib-calculator
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
